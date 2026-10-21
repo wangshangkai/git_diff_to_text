@@ -21,14 +21,12 @@
 
 ## A 电脑：导出
 
-```powershell
-export_on_a.bat                 # 生成 staged.patch
-export_on_a.bat my.patch        # 指定输出文件名
-```
-
 ```sh
+# Windows
+export_on_a.bat                 # 生成 staged.patch
+
+# Linux
 sh export_on_a.sh               # 生成 staged.patch
-sh export_on_a.sh my.patch      # 指定输出文件名
 ```
 
 导出命令等价于：
@@ -45,14 +43,12 @@ git diff --cached --binary --full-index > staged.patch
 
 ## B 电脑：应用
 
-```powershell
-apply_on_b.bat                   # 应用 staged.patch
-apply_on_b.bat my.patch          # 指定补丁文件
-```
-
 ```sh
+# Windows
+apply_on_b.bat                   # 应用 staged.patch
+
+# Linux
 sh apply_on_b.sh                 # 应用 staged.patch
-sh apply_on_b.sh my.patch        # 指定补丁文件
 ```
 
 脚本先执行 `git apply --check` 校验，通过后才执行 `git apply`；校验失败会直接退出，不会改动文件。
